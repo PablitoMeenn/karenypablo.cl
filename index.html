@@ -53,26 +53,36 @@
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h2><a href="https://docs.google.com/spreadsheets/d/15-nc0_56S-ORLAme_kmWcFkh25yUIb23YByxBgnVnPw"  target="_blank">PINCHA AQUí PARA VER LISTA DE REGALOS</a></h2>
 							<h1>Vengan a nuestra Revelación de Sexo</h1>
-							<div class="countdown-container">
-								<h2 class="countdown-title">Cuenta Regresiva para Evento</h2>
-								<div class="countdown-blocks">
-									<div class="time-block">
-										<div id="countdown-days" class="number">00</div>
-										<div class="label">Días</div>
+							
+							<div class="contador-contenedor">
+								<div class="contador-progresivo">
+									<div class="tiempo-item">
+										<div id="anos" class="tiempo-valor">0</div>
+										<div class="tiempo-etiqueta">Años</div>
 									</div>
-									<div class="time-block">
-										<div id="countdown-hours" class="number">00</div>
-										<div class="label">Horas</div>
+									<div class="tiempo-item">
+										<div id="meses" class="tiempo-valor">0</div>
+										<div class="tiempo-etiqueta">Meses</div>
 									</div>
-									<div class="time-block">
-										<div id="countdown-minutes" class="number">00</div>
-										<div class="label">Minutos</div>
+									<div class="tiempo-item">
+										<div id="dias" class="tiempo-valor">0</div>
+										<div class="tiempo-etiqueta">Días</div>
 									</div>
-									<div class="time-block">
-										<div id="countdown-seconds" class="number">00</div>
-										<div class="label">Segundos</div>
+									<div class="tiempo-item">
+										<div id="horas" class="tiempo-valor">0</div>
+										<div class="tiempo-etiqueta">Horas</div>
+									</div>
+									<div class="tiempo-item">
+										<div id="minutos" class="tiempo-valor">0</div>
+										<div class="tiempo-etiqueta">Minutos</div>
+									</div>
+									<div class="tiempo-item">
+										<div id="segundos" class="tiempo-valor">0</div>
+										<div class="tiempo-etiqueta">Segundos</div>
 									</div>
 								</div>
+							</div>
+
 							</div>
 							
 						</div>
@@ -696,39 +706,40 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	
-<script>
-    // Aquí puedes modificar la fecha objetivo
-    const fechaObjetivo = new Date('2025-02-19T12:00:00'); // Formato: YYYY-MM-DD HH:mm:ss
+    <script>
+        function calcularTiempoTranscurrido() {
+            const fechaInicio = new Date('February 10, 2025 16:26:00');
+            
+            function actualizar() {
+                const ahora = new Date();
+                const diferencia = ahora - fechaInicio;
 
-    function updateCountdown() {
-        const now = new Date();
-        const diff = fechaObjetivo - now;
+                const segundos = Math.floor((diferencia / 1000) % 60);
+                const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+                const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+                const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+                
+                // Cálculo de meses y años más preciso
+                const mesesTotal = Math.floor(dias / 30.44);
+                const anos = Math.floor(mesesTotal / 12);
+                const meses = mesesTotal % 12;
 
-        // Si la fecha ya pasó
-        if (diff < 0) {
-            document.getElementById('countdown-days').textContent = '00';
-            document.getElementById('countdown-hours').textContent = '00';
-            document.getElementById('countdown-minutes').textContent = '00';
-            document.getElementById('countdown-seconds').textContent = '00';
-            return;
+                document.getElementById('anos').textContent = anos;
+                document.getElementById('meses').textContent = meses;
+                document.getElementById('dias').textContent = dias % 30;
+                document.getElementById('horas').textContent = horas;
+                document.getElementById('minutos').textContent = minutos;
+                document.getElementById('segundos').textContent = segundos;
+            }
+
+            // Actualizar inmediatamente y luego cada segundo
+            actualizar();
+            setInterval(actualizar, 1000);
         }
 
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        // Iniciar cuando el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', calcularTiempoTranscurrido);
+    </script>
 
-        document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
-        document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
-    }
-
-    // Actualizar cada segundo
-    setInterval(updateCountdown, 1000);
-    // Actualizar inmediatamente al cargar
-    updateCountdown();
-</script>
 	</body>
 </html>

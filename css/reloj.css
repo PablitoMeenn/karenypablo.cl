@@ -1,43 +1,42 @@
-.countdown-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    color: white;
-}
-
-.countdown-title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-}
-
-.countdown-blocks {
+.contador-contenedor {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contador-titulo {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.contador-progresivo {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
-.time-block {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
+.tiempo-item {
+    background-color: transparent;
+    color: white;
     border-radius: 10px;
-    min-width: 80px;
-    text-align: center;
+    padding: 15px;
+    min-width: 100px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.number {
-    font-size: 2.5em;
+.tiempo-valor {
+    font-size: 3.5rem;
     font-weight: bold;
-    margin-bottom: 5px;
-    color: rgba(10, 10, 15, 0.473);
 }
 
-.label {
-    font-size: 1em;
+.tiempo-etiqueta {
+    font-size: 1rem;
     text-transform: uppercase;
+    margin-top: 10px;
+    opacity: 0.9;
 }
