@@ -1,50 +1,40 @@
 <!DOCTYPE html>
+<html lang="es">
 	<head>
 	<meta charset="utf-8">
 	<title>Chascona y Meenn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Invitacion" />
-	<meta name="keywords" content="Meenn, Chascona" />
-	<meta name="author" content="Meenn" />
-    <link rel="shortcut icon" href="favicon.ico" />
-  	<!-- Facebook and Twitter integration 
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />-->
+	<meta name="description" content="Invitación de Chascona y Meenn: revelación de sexo y baby shower.">
+	<meta name="author" content="Meenn">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Chascona y Meenn">
+	<meta property="og:description" content="Queremos compartir nuestra alegría con ustedes.">
+	<meta property="og:image" content="https://karenypablo.cl/images/img_bg_3.jpg">
+	<link rel="icon" href="favicon.ico">
 
-	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
+	<!-- Marca que hay JavaScript (lo usan la pantalla de carga y las animaciones) -->
+	<script>document.documentElement.className += ' js';</script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sacramento&amp;family=Work+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&amp;display=swap">
+
+	<!-- Iconos -->
 	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
+	<!-- Bootstrap (solo CSS: grilla y base) -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Theme style  -->
+	<!-- Tema -->
 	<link rel="stylesheet" href="css/style.css">
-	<!-- contador reloj  -->
-	<link rel="stylesheet" href="css/reloj.css">
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- Estilos propios: contador, galería, visor y animaciones -->
+	<link rel="stylesheet" href="css/custom.css">
 
+	<script src="js/main.js" defer></script>
 	</head>
 	<body>
 
 	<div class="fh5co-loader"></div>
-	
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -52,39 +42,18 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Vengan a nuestra Revelación de Sexo</h1>
-							
-
-
-<div style="text-align:center; margin-bottom: 20px;">
-    <button onclick="mostrarVista('normal')" class="btn-tiempo">Tiempo normal</button>
-    <button onclick="mostrarVista('anos')" class="btn-tiempo">Años</button>
-    <button onclick="mostrarVista('meses')" class="btn-tiempo">Meses</button>
-    <button onclick="mostrarVista('dias')" class="btn-tiempo">Días</button>
-    <button onclick="mostrarVista('horas')" class="btn-tiempo">Horas</button>
-    <button onclick="mostrarVista('segundos')" class="btn-tiempo">Segundos</button>
-</div>
-
-<div id="vista-normal">
-    <span id="anos"></span> años,
-    <span id="meses"></span> meses,
-    <span id="dias"></span> días,
-    <span id="horas"></span> horas,
-    <span id="minutos"></span> minutos,
-    <span id="segundos"></span> segundos
-</div>
-
-<div id="vista-unica" style="display:none; font-size: 1.5em; text-align:center;">
-    <span id="valor-unico"></span> <span id="etiqueta-unica"></span>
-</div>
-
-
-
-
-
-
 
 							<div class="contador-contenedor">
-								<div class="contador-progresivo">
+								<div class="contador-botones" role="group" aria-label="Formato del contador">
+									<button type="button" class="btn-tiempo activo" data-vista="normal" aria-pressed="true">Tiempo normal</button>
+									<button type="button" class="btn-tiempo" data-vista="anos" aria-pressed="false">Años</button>
+									<button type="button" class="btn-tiempo" data-vista="meses" aria-pressed="false">Meses</button>
+									<button type="button" class="btn-tiempo" data-vista="dias" aria-pressed="false">Días</button>
+									<button type="button" class="btn-tiempo" data-vista="horas" aria-pressed="false">Horas</button>
+									<button type="button" class="btn-tiempo" data-vista="segundos" aria-pressed="false">Segundos</button>
+								</div>
+
+								<div id="vista-normal" class="contador-progresivo">
 									<div class="tiempo-item">
 										<div id="anos" class="tiempo-valor">0</div>
 										<div class="tiempo-etiqueta">Años</div>
@@ -110,10 +79,13 @@
 										<div class="tiempo-etiqueta">Segundos</div>
 									</div>
 								</div>
+
+								<div id="vista-unica" class="contador-unico" hidden>
+									<div id="valor-unico" class="tiempo-valor"></div>
+									<div id="etiqueta-unica" class="tiempo-etiqueta"></div>
+								</div>
 							</div>
 
-							</div>
-							
 						</div>
 					</div>
 				</div>
@@ -127,7 +99,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<h2>Queremos compartir nuestra alegría con ustedes</h2>
 					<h3>Sábado 04 de Enero, 2025.</h3>
-					<h3><a href="https://maps.app.goo.gl/xtyoyZDocP4ounFU6" target="_blank">Argel 1802, Conchalí, Región Metropolitana</a></h3>
+					<h3><a href="https://maps.app.goo.gl/xtyoyZDocP4ounFU6" target="_blank" rel="noopener">Argel 1802, Conchalí, Región Metropolitana</a></h3>
 					<h4>(Pincha en la dirección para ver el Mapa)</h4>
 					<p></p>
 				</div>
@@ -135,7 +107,7 @@
 			<div class="couple-wrap animate-box">
 				<div class="couple-half">
 					<div class="groom">
-						<img src="images/groom.jpg" alt="groom" class="img-responsive">
+						<img src="images/groom.jpg" alt="Chascona" class="img-responsive" width="601" height="601">
 					</div>
 					<div class="desc-groom">
 						<h3>Chascona</h3>
@@ -145,7 +117,7 @@
 				<p class="heart text-center"><i class="icon-heart2"></i></p>
 				<div class="couple-half">
 					<div class="bride">
-						<img src="images/bride.jpg" alt="groom" class="img-responsive">
+						<img src="images/bride.jpg" alt="Meenn" class="img-responsive" width="851" height="851">
 					</div>
 					<div class="desc-bride">
 						<h3>Meenn</h3>
@@ -171,7 +143,7 @@
 						<div class="col-md-10 col-md-offset-1">
 							<div class="col-md-6 col-sm-6 text-center">
 								<div class="event-wrap animate-box">
-									<h3><a href="https://calendar.app.google/6coyArKY6341moim9" target="_blank">Clic Aqui para confirmar Asistencia</a></h3>
+									<h3><a href="https://calendar.app.google/6coyArKY6341moim9" target="_blank" rel="noopener">Clic Aqui para confirmar Asistencia</a></h3>
 									<div class="event-col">
 										<i class="icon-clock"></i>
 										<span>16:00 Hrs</span>
@@ -203,7 +175,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 
 	<div id="fh5co-gallery" class="fh5co-section-gray">
@@ -219,88 +190,99 @@
 				<div class="col-md-12">
 					<ul id="fh5co-gallery-list">
 
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-01.jpg); "> 
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
 						<a href="images/gallery-01.jpg">
+							<img src="images/thumbs/gallery-01.webp" alt="" width="800" height="660" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Chascona y Crespa</span>
 								<h2>Con mi Pelo Alborotado y al Viento</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-02.jpg); ">
-						<a href="images/gallery-02.jpg" class="color-2">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-02.jpg">
+							<img src="images/thumbs/gallery-02.webp" alt="" width="800" height="690" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>¡¡¡ Meenn !!!</span>
 								<h2>¡¡¡ Atina Meenn. No La Venda !!!</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-03.jpg); ">
-						<a href="images/gallery-03.jpg" class="color-3">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-03.jpg">
+							<img src="images/thumbs/gallery-03.webp" alt="" width="800" height="741" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Primera Navidad</span>
 								<h2>Viendo pasar al Viejito Pascuero y Pedirle un Deseo</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-04.jpg); ">
-						<a href="images/gallery-04.jpg" class="color-4">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-04.jpg">
+							<img src="images/thumbs/gallery-04.webp" alt="" width="800" height="584" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Rizas</span>
 								<h2>Empezando a salir algunos lados</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-05.jpg); "> 
-						<a href="images/gallery-05.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-05.jpg">
+							<img src="images/thumbs/gallery-05.webp" alt="" width="800" height="567" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Pileta</span>
 								<h2>Viendo quien se moja primero cuando tiran agua</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-06.jpg); "> 
-						<a href="images/gallery-06.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-06.jpg">
+							<img src="images/thumbs/gallery-06.webp" alt="" width="800" height="450" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Jockey</span>
 								<h2>Tratando de alinear mi estilo</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-07.jpg); "> 
-						<a href="images/gallery-07.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-07.jpg">
+							<img src="images/thumbs/gallery-07.webp" alt="" width="800" height="449" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Heladas para la sed</span>
 								<h2>Solo por sed y hablar un rato</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-08.jpg); "> 
-						<a href="images/gallery-08.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-08.jpg">
+							<img src="images/thumbs/gallery-08.webp" alt="" width="800" height="596" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Ponte seria</span>
 								<h2>Solo la mira la camara y se natural</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-09.jpg); "> 
-						<a href="images/gallery-09.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-09.jpg">
+							<img src="images/thumbs/gallery-09.webp" alt="" width="800" height="449" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Auto y Pizzas</span>
 								<h2>De madrugada, sin salir del auto, para comer pizzas</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-10.jpg); "> 
-						<a href="images/gallery-10.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-10.jpg">
+							<img src="images/thumbs/gallery-10.webp" alt="" width="800" height="638" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Patinaje</span>
-								<h2>Biciletas aun que sea de paseo</h2>
+								<h2>Bicicletas aun que sea de paseo</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-11.jpg); "> 
-						<a href="images/gallery-11.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-11.jpg">
+							<img src="images/thumbs/gallery-11.webp" alt="" width="800" height="648" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Papa John's</span>
 								<h2>Viendo que no avanza el turno</h2>
@@ -308,328 +290,367 @@
 						</a>
 					</li>
 					
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-12.jpg); "> 
-						<a href="images/gallery-12.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-12.jpg">
+							<img src="images/thumbs/gallery-12.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Abrigados</span>
 								<h2>Caminar de noche de la mano</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-13.jpg); "> 
-						<a href="images/gallery-13.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-13.jpg">
+							<img src="images/thumbs/gallery-13.webp" alt="" width="800" height="451" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Contenta</span>
 								<h2>Llegando al metro puntualmente</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-14.jpg); "> 
-						<a href="images/gallery-14.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-14.jpg">
+							<img src="images/thumbs/gallery-14.webp" alt="" width="800" height="748" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Chakra</span>
 								<h2>Un ratito para meditar</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-15.jpg); "> 
-						<a href="images/gallery-15.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-15.jpg">
+							<img src="images/thumbs/gallery-15.webp" alt="" width="800" height="451" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Pelo Lizo</span>
 								<h2>Muy distinta a su natural</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-16.jpg); "> 
-						<a href="images/gallery-16.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-16.jpg">
+							<img src="images/thumbs/gallery-16.webp" alt="" width="800" height="752" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>En Barro</span>
 								<h2>Junto a Ruby en su salidas al parque</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-17.jpg); "> 
-						<a href="images/gallery-17.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-17.jpg">
+							<img src="images/thumbs/gallery-17.webp" alt="" width="800" height="646" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Poleron Amarillo</span>
 								<h2>Androide N°8</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-18.jpg); "> 
-						<a href="images/gallery-18.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-18.jpg">
+							<img src="images/thumbs/gallery-18.webp" alt="" width="800" height="450" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Mar</span>
 								<h2>Un Poco salada por tanto oceano</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-19.jpg); "> 
-						<a href="images/gallery-19.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-19.jpg">
+							<img src="images/thumbs/gallery-19.webp" alt="" width="800" height="790" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Juntos a las 00:00</span>
 								<h2>Terminando y Empezando un año mas</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-20.jpg); "> 
-						<a href="images/gallery-20.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-20.jpg">
+							<img src="images/thumbs/gallery-20.webp" alt="" width="779" height="800" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Tomando Sol</span>
 								<h2>De Blanca un poquito</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-21.jpg); "> 
-						<a href="images/gallery-21.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-21.jpg">
+							<img src="images/thumbs/gallery-21.webp" alt="" width="800" height="658" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Felices lo que se viene</span>
 								<h2>Ya pronto nos tocara a nosotros</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-22.jpg); "> 
-						<a href="images/gallery-22.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-22.jpg">
+							<img src="images/thumbs/gallery-22.webp" alt="" width="800" height="717" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Reloj de Flores</span>
 								<h2>No perdiendo el tiempo en tonteras</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-23.jpg); "> 
-						<a href="images/gallery-23.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-23.jpg">
+							<img src="images/thumbs/gallery-23.webp" alt="" width="800" height="715" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Planificando el futuro</span>
-								<h2>Teniendo el Objetico en mente</h2>
+								<h2>Teniendo el Objetivo en mente</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-24.jpg); "> 
-						<a href="images/gallery-24.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-24.jpg">
+							<img src="images/thumbs/gallery-24.webp" alt="" width="800" height="683" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Caminando y Visitando</span>
 								<h2>Buscando justos en donde se realizara</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-25.jpg); "> 
-						<a href="images/gallery-25.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-25.jpg">
+							<img src="images/thumbs/gallery-25.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Completos</span>
 								<h2>Sus Italianos con Sal y sin Limon</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-26.jpg); "> 
-						<a href="images/gallery-26.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-26.jpg">
+							<img src="images/thumbs/gallery-26.webp" alt="" width="600" height="800" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>NY</span>
 								<h2>Siendo unas mas del clan de Limp Bizkit</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-27.jpg); "> 
-						<a href="images/gallery-27.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-27.jpg">
+							<img src="images/thumbs/gallery-27.webp" alt="" width="737" height="748" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>con Fuego en el Trago</span>
 								<h2>Tomando y Festejando </h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-28.jpg); "> 
-						<a href="images/gallery-28.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-28.jpg">
+							<img src="images/thumbs/gallery-28.webp" alt="" width="734" height="653" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Ida de Paseo</span>
-								<h2>Pepe Luis Acompapando siempre en su tribuna</h2>
+								<h2>Pepe Luis Acompañando siempre en su tribuna</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-29.jpg); "> 
-						<a href="images/gallery-29.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-29.jpg">
+							<img src="images/thumbs/gallery-29.webp" alt="" width="709" height="655" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Mi Cachorro</span>
 								<h2>Pepito Siempre presente, escencial en compañia</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-30.jpg); "> 
-						<a href="images/gallery-30.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-30.jpg">
+							<img src="images/thumbs/gallery-30.webp" alt="" width="800" height="733" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Ultima Fila</span>
 								<h2>Aun que estemos al final, estamos juntos</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-31.jpg); "> 
-						<a href="images/gallery-31.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-31.jpg">
+							<img src="images/thumbs/gallery-31.webp" alt="" width="794" height="800" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Pelo Corto</span>
 								<h2>Looks Locos y de cambios</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-32.jpg); "> 
-						<a href="images/gallery-32.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-32.jpg">
+							<img src="images/thumbs/gallery-32.webp" alt="" width="800" height="579" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>In the Matrix</span>
 								<h2>Lentes para ver la realidad oculta</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-33.jpg); "> 
-						<a href="images/gallery-33.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-33.jpg">
+							<img src="images/thumbs/gallery-33.webp" alt="" width="800" height="634" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Luces de Disco</span>
 								<h2>Esperando el Láser de elegidos</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-34.jpg); "> 
-						<a href="images/gallery-34.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-34.jpg">
+							<img src="images/thumbs/gallery-34.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Peluca</span>
 								<h2>Crespo y Afro, que mejor</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-35.jpg); "> 
-						<a href="images/gallery-35.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-35.jpg">
+							<img src="images/thumbs/gallery-35.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Llegando</span>
 								<h2>Pasandote a buscar para ser tu destino</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-36.jpg); "> 
-						<a href="images/gallery-36.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-36.jpg">
+							<img src="images/thumbs/gallery-36.webp" alt="" width="800" height="683" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Los Cachorros</span>
 								<h2>Los Tres Hijos Perrunos, parte de la familia ya</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-37.jpg); "> 
-						<a href="images/gallery-37.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-37.jpg">
+							<img src="images/thumbs/gallery-37.webp" alt="" width="739" height="800" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>La Chiky</span>
 								<h2>La Mejor Hamster </h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-38.jpg); "> 
-						<a href="images/gallery-38.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-38.jpg">
+							<img src="images/thumbs/gallery-38.webp" alt="" width="793" height="800" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Sam</span>
 								<h2>Adoptado para darle cariño</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-39.jpg); "> 
-						<a href="images/gallery-39.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-39.jpg">
+							<img src="images/thumbs/gallery-39.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Sorprendidos</span>
 								<h2>Viendo las cosas nuevas que llegaran</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-40.jpg); "> 
-						<a href="images/gallery-40.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-40.jpg">
+							<img src="images/thumbs/gallery-40.webp" alt="" width="795" height="800" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Trenzas</span>
 								<h2>Esperando los dos tener el pelo largo</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-41.jpg); "> 
-						<a href="images/gallery-41.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-41.jpg">
+							<img src="images/thumbs/gallery-41.webp" alt="" width="800" height="749" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Pandemia</span>
 								<h2>Saliendo a Mardoqueo a comer de todas maneras</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-42.jpg); "> 
-						<a href="images/gallery-42.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-42.jpg">
+							<img src="images/thumbs/gallery-42.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Florido</span>
 								<h2>Siempre en primavera en nuestras vidas</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-43.jpg); "> 
-						<a href="images/gallery-43.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-43.jpg">
+							<img src="images/thumbs/gallery-43.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Deseos</span>
 								<h2>Arrando nuestros deseos de vida</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-44.jpg); "> 
-						<a href="images/gallery-44.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-44.jpg">
+							<img src="images/thumbs/gallery-44.webp" alt="" width="800" height="624" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Michelada</span>
 								<h2>Con harto limón</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-45.jpg); "> 
-						<a href="images/gallery-45.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-45.jpg">
+							<img src="images/thumbs/gallery-45.webp" alt="" width="800" height="779" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Choripan</span>
 								<h2>Que no falte nunca el Pebre</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-46.jpg); "> 
-						<a href="images/gallery-46.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-46.jpg">
+							<img src="images/thumbs/gallery-46.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Cachorros y Carretes</span>
 								<h2>Cuando tequieren quitar hasta la cerveza los cachorros</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-47.jpg); "> 
-						<a href="images/gallery-47.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-47.jpg">
+							<img src="images/thumbs/gallery-47.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Frio</span>
 								<h2>Abrigados como hijo unico</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-48.jpg); "> 
-						<a href="images/gallery-48.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-48.jpg">
+							<img src="images/thumbs/gallery-48.webp" alt="" width="800" height="783" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Descendencia</span>
 								<h2>Ya los cachorros se multiplican</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-49.jpg); "> 
-						<a href="images/gallery-49.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-49.jpg">
+							<img src="images/thumbs/gallery-49.webp" alt="" width="800" height="677" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Huesillo</span>
 								<h2>Para quitar un poco el calor</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-50.jpg); "> 
-						<a href="images/gallery-50.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-50.jpg">
+							<img src="images/thumbs/gallery-50.webp" alt="" width="800" height="701" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Gorro de Lana</span>
 								<h2>Tener bien tapadas las orejitas</h2>
 							</div>
 						</a>
 					</li>
-					<li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/gallery-51.jpg); "> 
-						<a href="images/gallery-51.jpg" class="color-5">
+					<li class="one-third animate-box" data-animate-effect="fadeIn">
+						<a href="images/gallery-51.jpg">
+							<img src="images/thumbs/gallery-51.webp" alt="" width="800" height="600" loading="lazy" decoding="async">
 							<div class="case-studies-summary">
 								<span>Floreado</span>
-								<h2>en la Naturaliza siempre estar</h2>
+								<h2>en la Naturaleza siempre estar</h2>
 							</div>
 						</a>
 					</li>
-
-
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -653,7 +674,7 @@
 						</span>
 						<div class="feature-copy">
 							<h3>Fecha del Evento</h3>
-							<p><a href="https://calendar.app.google/ABxJW46daqysCDe47" target="_blank">Será el Sábado 19 de Octubre desde las 16:00 Hrs.</a></p>
+							<p><a href="https://calendar.app.google/ABxJW46daqysCDe47" target="_blank" rel="noopener">Será el Sábado 19 de Octubre desde las 16:00 Hrs.</a></p>
 						</div>
 					</div>
 
@@ -685,221 +706,34 @@
 		</div>
 	</div>
 
-
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; ¡¡¡ Atina Meenn. No La Venda !!!</small> 			
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href=""><i class="icon-twitter"></i></a></li>
-							<li><a href=""><i class="icon-facebook"></i></a></li>
-							<li><a href=""><i class="icon-linkedin"></i></a></li>
-							<li><a href=""><i class="icon-dribbble"></i></a></li>
-						</ul>
+						<small class="block">&copy; ¡¡¡ Atina Meenn. No La Venda !!!</small>
 					</p>
 				</div>
 			</div>
 
 		</div>
 	</footer>
-	</div>
 
 	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+		<a href="#" class="js-gotop" aria-label="Volver arriba"><i class="icon-arrow-up"></i></a>
 	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- countTo -->
-	<script src="js/jquery.countTo.js"></script>
 
-	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-
-	<!-- Main -->
-	<script src="js/main.js"></script>
-
-
-<div style="text-align:center; margin-bottom: 20px;">
-    <button onclick="mostrarVista('normal')" class="btn-tiempo">Tiempo normal</button>
-    <button onclick="mostrarVista('anos')" class="btn-tiempo">Años</button>
-    <button onclick="mostrarVista('meses')" class="btn-tiempo">Meses</button>
-    <button onclick="mostrarVista('dias')" class="btn-tiempo">Días</button>
-    <button onclick="mostrarVista('horas')" class="btn-tiempo">Horas</button>
-    <button onclick="mostrarVista('segundos')" class="btn-tiempo">Segundos</button>
-</div>
-
-<div id="vista-normal">
-    <span id="anos"></span> años,
-    <span id="meses"></span> meses,
-    <span id="dias"></span> días,
-    <span id="horas"></span> horas,
-    <span id="minutos"></span> minutos,
-    <span id="segundos"></span> segundos
-</div>
-
-<div id="vista-unica" style="display:none; font-size: 1.5em; text-align:center;">
-    <span id="valor-unico"></span> <span id="etiqueta-unica"></span>
-</div>
-
-<style>
-.btn-tiempo {
-    margin: 0 4px;
-    padding: 8px 14px;
-    cursor: pointer;
-}
-.btn-tiempo.activo {
-    font-weight: bold;
-    text-decoration: underline;
-}
-</style>
-
-<script>
-    const fechaInicio = new Date(2025, 1, 10, 16, 26, 0);
-    let vistaActual = 'normal';
-
-    function formatearNumero(numero, decimales) {
-        return numero.toLocaleString('es-CL', {
-            minimumFractionDigits: decimales,
-            maximumFractionDigits: decimales
-        });
-    }
-
-    // Años decimales reales: años calendario completos + fracción del año actual
-    // (usa la duración real de ESE año específico entre aniversarios, respetando bisiestos)
-    function anosDecimales(inicio, fin) {
-        let years = fin.getFullYear() - inicio.getFullYear();
-        let aniv = new Date(inicio);
-        aniv.setFullYear(inicio.getFullYear() + years);
-        if (aniv > fin) {
-            years--;
-            aniv.setFullYear(inicio.getFullYear() + years);
-        }
-        const siguienteAniv = new Date(inicio);
-        siguienteAniv.setFullYear(inicio.getFullYear() + years + 1);
-
-        const fraccion = (fin - aniv) / (siguienteAniv - aniv);
-        return years + fraccion;
-    }
-
-    // Meses decimales reales: meses calendario completos + fracción del mes actual
-    // (usa la duración real de ESE mes específico, sin promedios)
-    function mesesDecimales(inicio, fin) {
-        let totalMeses = (fin.getFullYear() - inicio.getFullYear()) * 12 + (fin.getMonth() - inicio.getMonth());
-        let aniv = new Date(inicio);
-        aniv.setMonth(inicio.getMonth() + totalMeses);
-        if (aniv > fin) {
-            totalMeses--;
-            aniv.setMonth(inicio.getMonth() + totalMeses);
-        }
-        const siguienteAniv = new Date(inicio);
-        siguienteAniv.setMonth(inicio.getMonth() + totalMeses + 1);
-
-        const fraccion = (fin - aniv) / (siguienteAniv - aniv);
-        return totalMeses + fraccion;
-    }
-
-    function mostrarVista(vista) {
-        vistaActual = vista;
-        document.getElementById('vista-normal').style.display = (vista === 'normal') ? 'block' : 'none';
-        document.getElementById('vista-unica').style.display = (vista === 'normal') ? 'none' : 'block';
-
-        document.querySelectorAll('.btn-tiempo').forEach(btn => btn.classList.remove('activo'));
-        const indices = { normal: 0, anos: 1, meses: 2, dias: 3, horas: 4, segundos: 5 };
-        document.querySelectorAll('.btn-tiempo')[indices[vista]].classList.add('activo');
-
-        actualizar();
-    }
-
-    function actualizar() {
-        const ahora = new Date();
-        const diferenciaMs = ahora - fechaInicio;
-
-        if (vistaActual === 'normal') {
-            let anos = ahora.getFullYear() - fechaInicio.getFullYear();
-            let meses = ahora.getMonth() - fechaInicio.getMonth();
-            let dias = ahora.getDate() - fechaInicio.getDate();
-            let horas = ahora.getHours() - fechaInicio.getHours();
-            let minutos = ahora.getMinutes() - fechaInicio.getMinutes();
-            let segundos = ahora.getSeconds() - fechaInicio.getSeconds();
-
-            if (segundos < 0) { segundos += 60; minutos--; }
-            if (minutos < 0) { minutos += 60; horas--; }
-            if (horas < 0) { horas += 24; dias--; }
-            if (dias < 0) {
-                const mesAnterior = new Date(ahora.getFullYear(), ahora.getMonth(), 0);
-                dias += mesAnterior.getDate();
-                meses--;
-            }
-            if (meses < 0) { meses += 12; anos--; }
-
-            document.getElementById('anos').textContent = anos;
-            document.getElementById('meses').textContent = meses;
-            document.getElementById('dias').textContent = dias;
-            document.getElementById('horas').textContent = horas;
-            document.getElementById('minutos').textContent = minutos;
-            document.getElementById('segundos').textContent = segundos;
-            return;
-        }
-
-        const msPorDia = 1000 * 60 * 60 * 24;
-        const totalDias = diferenciaMs / msPorDia;
-        const totalHoras = diferenciaMs / (1000 * 60 * 60);
-        const totalSegundos = diferenciaMs / 1000;
-
-        let valor, etiqueta;
-
-        switch (vistaActual) {
-            case 'anos':
-                valor = formatearNumero(anosDecimales(fechaInicio, ahora), 5);
-                etiqueta = 'años';
-                break;
-            case 'meses':
-                valor = formatearNumero(mesesDecimales(fechaInicio, ahora), 5);
-                etiqueta = 'meses';
-                break;
-            case 'dias':
-                valor = formatearNumero(Math.floor(totalDias), 0);
-                etiqueta = 'días';
-                break;
-            case 'horas':
-                valor = formatearNumero(Math.floor(totalHoras), 0);
-                etiqueta = 'horas';
-                break;
-            case 'segundos':
-                valor = formatearNumero(Math.floor(totalSegundos), 0);
-                etiqueta = 'segundos';
-                break;
-        }
-
-        document.getElementById('valor-unico').textContent = valor;
-        document.getElementById('etiqueta-unica').textContent = etiqueta;
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        mostrarVista('normal');
-        setInterval(actualizar, 1000);
-    });
-</script>
-
-
-
+	<!-- Visor de fotos de la galería -->
+	<dialog id="visor" class="visor" aria-label="Foto ampliada">
+		<button type="button" class="visor-cerrar" aria-label="Cerrar">&times;</button>
+		<button type="button" class="visor-anterior" aria-label="Foto anterior">&#8249;</button>
+		<figure>
+			<img alt="">
+			<figcaption></figcaption>
+		</figure>
+		<button type="button" class="visor-siguiente" aria-label="Foto siguiente">&#8250;</button>
+	</dialog>
 
 	</body>
 </html>
