@@ -51,9 +51,38 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h2><a href="https://docs.google.com/spreadsheets/d/15-nc0_56S-ORLAme_kmWcFkh25yUIb23YByxBgnVnPw"  target="_blank">PINCHA AQUí PARA VER LISTA DE REGALOS</a></h2>
 							<h1>Vengan a nuestra Revelación de Sexo</h1>
 							
+
+
+<div style="text-align:center; margin-bottom: 20px;">
+    <button onclick="mostrarVista('normal')" class="btn-tiempo">Tiempo normal</button>
+    <button onclick="mostrarVista('anos')" class="btn-tiempo">Años</button>
+    <button onclick="mostrarVista('meses')" class="btn-tiempo">Meses</button>
+    <button onclick="mostrarVista('dias')" class="btn-tiempo">Días</button>
+    <button onclick="mostrarVista('horas')" class="btn-tiempo">Horas</button>
+    <button onclick="mostrarVista('segundos')" class="btn-tiempo">Segundos</button>
+</div>
+
+<div id="vista-normal">
+    <span id="anos"></span> años,
+    <span id="meses"></span> meses,
+    <span id="dias"></span> días,
+    <span id="horas"></span> horas,
+    <span id="minutos"></span> minutos,
+    <span id="segundos"></span> segundos
+</div>
+
+<div id="vista-unica" style="display:none; font-size: 1.5em; text-align:center;">
+    <span id="valor-unico"></span> <span id="etiqueta-unica"></span>
+</div>
+
+
+
+
+
+
+
 							<div class="contador-contenedor">
 								<div class="contador-progresivo">
 									<div class="tiempo-item">
@@ -706,13 +735,103 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+
+<div style="text-align:center; margin-bottom: 20px;">
+    <button onclick="mostrarVista('normal')" class="btn-tiempo">Tiempo normal</button>
+    <button onclick="mostrarVista('anos')" class="btn-tiempo">Años</button>
+    <button onclick="mostrarVista('meses')" class="btn-tiempo">Meses</button>
+    <button onclick="mostrarVista('dias')" class="btn-tiempo">Días</button>
+    <button onclick="mostrarVista('horas')" class="btn-tiempo">Horas</button>
+    <button onclick="mostrarVista('segundos')" class="btn-tiempo">Segundos</button>
+</div>
+
+<div id="vista-normal">
+    <span id="anos"></span> años,
+    <span id="meses"></span> meses,
+    <span id="dias"></span> días,
+    <span id="horas"></span> horas,
+    <span id="minutos"></span> minutos,
+    <span id="segundos"></span> segundos
+</div>
+
+<div id="vista-unica" style="display:none; font-size: 1.5em; text-align:center;">
+    <span id="valor-unico"></span> <span id="etiqueta-unica"></span>
+</div>
+
+<style>
+.btn-tiempo {
+    margin: 0 4px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+.btn-tiempo.activo {
+    font-weight: bold;
+    text-decoration: underline;
+}
+</style>
+
 <script>
-    function calcularTiempoTranscurrido() {
-        const fechaInicio = new Date(2025, 1, 10, 16, 26, 0);
+    const fechaInicio = new Date(2025, 1, 10, 16, 26, 0);
+    let vistaActual = 'normal';
 
-        function actualizar() {
-            const ahora = new Date();
+    function formatearNumero(numero, decimales) {
+        return numero.toLocaleString('es-CL', {
+            minimumFractionDigits: decimales,
+            maximumFractionDigits: decimales
+        });
+    }
 
+    // Años decimales reales: años calendario completos + fracción del año actual
+    // (usa la duración real de ESE año específico entre aniversarios, respetando bisiestos)
+    function anosDecimales(inicio, fin) {
+        let years = fin.getFullYear() - inicio.getFullYear();
+        let aniv = new Date(inicio);
+        aniv.setFullYear(inicio.getFullYear() + years);
+        if (aniv > fin) {
+            years--;
+            aniv.setFullYear(inicio.getFullYear() + years);
+        }
+        const siguienteAniv = new Date(inicio);
+        siguienteAniv.setFullYear(inicio.getFullYear() + years + 1);
+
+        const fraccion = (fin - aniv) / (siguienteAniv - aniv);
+        return years + fraccion;
+    }
+
+    // Meses decimales reales: meses calendario completos + fracción del mes actual
+    // (usa la duración real de ESE mes específico, sin promedios)
+    function mesesDecimales(inicio, fin) {
+        let totalMeses = (fin.getFullYear() - inicio.getFullYear()) * 12 + (fin.getMonth() - inicio.getMonth());
+        let aniv = new Date(inicio);
+        aniv.setMonth(inicio.getMonth() + totalMeses);
+        if (aniv > fin) {
+            totalMeses--;
+            aniv.setMonth(inicio.getMonth() + totalMeses);
+        }
+        const siguienteAniv = new Date(inicio);
+        siguienteAniv.setMonth(inicio.getMonth() + totalMeses + 1);
+
+        const fraccion = (fin - aniv) / (siguienteAniv - aniv);
+        return totalMeses + fraccion;
+    }
+
+    function mostrarVista(vista) {
+        vistaActual = vista;
+        document.getElementById('vista-normal').style.display = (vista === 'normal') ? 'block' : 'none';
+        document.getElementById('vista-unica').style.display = (vista === 'normal') ? 'none' : 'block';
+
+        document.querySelectorAll('.btn-tiempo').forEach(btn => btn.classList.remove('activo'));
+        const indices = { normal: 0, anos: 1, meses: 2, dias: 3, horas: 4, segundos: 5 };
+        document.querySelectorAll('.btn-tiempo')[indices[vista]].classList.add('activo');
+
+        actualizar();
+    }
+
+    function actualizar() {
+        const ahora = new Date();
+        const diferenciaMs = ahora - fechaInicio;
+
+        if (vistaActual === 'normal') {
             let anos = ahora.getFullYear() - fechaInicio.getFullYear();
             let meses = ahora.getMonth() - fechaInicio.getMonth();
             let dias = ahora.getDate() - fechaInicio.getDate();
@@ -720,28 +839,15 @@
             let minutos = ahora.getMinutes() - fechaInicio.getMinutes();
             let segundos = ahora.getSeconds() - fechaInicio.getSeconds();
 
-            if (segundos < 0) {
-                segundos += 60;
-                minutos--;
-            }
-            if (minutos < 0) {
-                minutos += 60;
-                horas--;
-            }
-            if (horas < 0) {
-                horas += 24;
-                dias--;
-            }
+            if (segundos < 0) { segundos += 60; minutos--; }
+            if (minutos < 0) { minutos += 60; horas--; }
+            if (horas < 0) { horas += 24; dias--; }
             if (dias < 0) {
-                // Días del mes anterior al mes actual de "ahora"
                 const mesAnterior = new Date(ahora.getFullYear(), ahora.getMonth(), 0);
                 dias += mesAnterior.getDate();
                 meses--;
             }
-            if (meses < 0) {
-                meses += 12;
-                anos--;
-            }
+            if (meses < 0) { meses += 12; anos--; }
 
             document.getElementById('anos').textContent = anos;
             document.getElementById('meses').textContent = meses;
@@ -749,14 +855,51 @@
             document.getElementById('horas').textContent = horas;
             document.getElementById('minutos').textContent = minutos;
             document.getElementById('segundos').textContent = segundos;
+            return;
         }
 
-        actualizar();
-        setInterval(actualizar, 1000);
+        const msPorDia = 1000 * 60 * 60 * 24;
+        const totalDias = diferenciaMs / msPorDia;
+        const totalHoras = diferenciaMs / (1000 * 60 * 60);
+        const totalSegundos = diferenciaMs / 1000;
+
+        let valor, etiqueta;
+
+        switch (vistaActual) {
+            case 'anos':
+                valor = formatearNumero(anosDecimales(fechaInicio, ahora), 5);
+                etiqueta = 'años';
+                break;
+            case 'meses':
+                valor = formatearNumero(mesesDecimales(fechaInicio, ahora), 5);
+                etiqueta = 'meses';
+                break;
+            case 'dias':
+                valor = formatearNumero(Math.floor(totalDias), 0);
+                etiqueta = 'días';
+                break;
+            case 'horas':
+                valor = formatearNumero(Math.floor(totalHoras), 0);
+                etiqueta = 'horas';
+                break;
+            case 'segundos':
+                valor = formatearNumero(Math.floor(totalSegundos), 0);
+                etiqueta = 'segundos';
+                break;
+        }
+
+        document.getElementById('valor-unico').textContent = valor;
+        document.getElementById('etiqueta-unica').textContent = etiqueta;
     }
 
-    document.addEventListener('DOMContentLoaded', calcularTiempoTranscurrido);
+    document.addEventListener('DOMContentLoaded', function() {
+        mostrarVista('normal');
+        setInterval(actualizar, 1000);
+    });
 </script>
+
+
+
 
 	</body>
 </html>
