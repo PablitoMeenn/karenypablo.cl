@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/karpab/public_html
-    - /bin/cp -R * $DEPLOYPATH/
